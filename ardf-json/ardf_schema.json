@@ -92,13 +92,11 @@
               "PRACTICE",
               "OTHER"
             ],
-            "default": "PRACTICE",
             "description": "Level of the race"
           },
           "race_time_limit": {
             "type": "integer",
             "minimum": 0,
-            "default": 120,
             "description": "Time limit in minutes"
           },
           "race_api_key": {
@@ -387,11 +385,6 @@
                       "required": [],
                       "description": "Status of the result: OK - valid, MP - misspunched, DNS - did not start, DNF - did not finish, NR - no ranking, OVT - overtime, UNF - unofficial, ERR - error"
                     },
-                    "automatic_status": {
-                      "type": "boolean",
-                      "default": true,
-                      "description": "Marks if the status was calculated, or assigned manually."
-                    },
                     "place": {
                       "type": "integer",
                       "minimum": 0,
@@ -426,32 +419,6 @@
                               "SEPARATOR"
                             ],
                             "description": "Type of the control point"
-                          },
-                          "si_time": {
-                            "type": "object",
-                            "description": "SI time of the punch",
-                            "properties": {
-                              "real_time": {
-                                "type": "string",
-                                "pattern": "time",
-                                "required": [],
-                                "description": "Real time in the hh:mm:ss time format"
-                              },
-                              "week": {
-                                "type": "integer",
-                                "required": [],
-                                "minimum": 0,
-                                "maximum": 3,
-                                "description": "Week of the punch based on the SI format - [0-3]"
-                              },
-                              "day_of_week": {
-                                "type": "integer",
-                                "required": [],
-                                "minimum": 0,
-                                "maximum": 6,
-                                "description": "Day of the punch based on the SI format - [0 (Sunday) - 6 (Saturday)]"
-                              }
-                            }
                           },
                           "split_time": {
                             "type": "string",
@@ -490,82 +457,16 @@
                   "description": "Result's SI number"
                 },
                 "check_time": {
-                  "type": "object",
-                  "description": "SI check time",
-                  "properties": {
-                    "real_time": {
-                      "type": "string",
-                      "pattern": "time",
-                      "required": [],
-                      "description": "Real time in the hh:mm:ss time format"
-                    },
-                    "week": {
-                      "type": "integer",
-                      "required": [],
-                      "minimum": 0,
-                      "maximum": 3,
-                      "description": "Week of the punch based on the SI format - [0-3]"
-                    },
-                    "day_of_week": {
-                      "type": "integer",
-                      "required": [],
-                      "minimum": 0,
-                      "maximum": 6,
-                      "description": "Day of the punch based on the SI format - [0 (Sunday) - 6 (Saturday)]"
-                    }
-                  }
+                  "type": "duration",
+                  "description": "SI check time - duration from start 00"
                 },
                 "start_time": {
-                  "type": "object",
-                  "description": "SI start time",
-                  "properties": {
-                    "real_time": {
-                      "type": "string",
-                      "pattern": "time",
-                      "required": [],
-                      "description": "Real time in the hh:mm:ss time format"
-                    },
-                    "week": {
-                      "type": "integer",
-                      "required": [],
-                      "minimum": 0,
-                      "maximum": 3,
-                      "description": "Week of the punch based on the SI format - [0-3]"
-                    },
-                    "day_of_week": {
-                      "type": "integer",
-                      "required": [],
-                      "minimum": 0,
-                      "maximum": 6,
-                      "description": "Day of the punch based on the SI format - [0 (Sunday) - 6 (Saturday)]"
-                    }
-                  }
+                  "type": "duration",
+                  "description": "SI start time - duration from start 00"
                 },
                 "finish_time": {
-                  "type": "object",
-                  "description": "SI finish time",
-                  "properties": {
-                    "real_time": {
-                      "type": "string",
-                      "pattern": "time",
-                      "required": [],
-                      "description": "Real time in the hh:mm:ss time format"
-                    },
-                    "week": {
-                      "type": "integer",
-                      "required": [],
-                      "minimum": 0,
-                      "maximum": 3,
-                      "description": "Week based on the SI format - [0-3]"
-                    },
-                    "day_of_week": {
-                      "type": "integer",
-                      "required": [],
-                      "minimum": 0,
-                      "maximum": 6,
-                      "description": "Day based on the SI format - [0 (Sunday) - 6 (Saturday)]"
-                    }
-                  }
+                  "type": "duration",
+                  "description": "SI finish time - duration from start 00"
                 },
                 "run_time": {
                   "type": "string",
@@ -596,32 +497,6 @@
                           "SEPARATOR"
                         ],
                         "description": "Type of the control point"
-                      },
-                      "si_time": {
-                        "type": "object",
-                        "description": "SI time of the punch",
-                        "properties": {
-                          "real_time": {
-                            "type": "string",
-                            "pattern": "time",
-                            "required": [],
-                            "description": "Real time in the hh:mm:ss time format"
-                          },
-                          "week": {
-                            "type": "integer",
-                            "required": [],
-                            "minimum": 0,
-                            "maximum": 3,
-                            "description": "Week of the punch based on the SI format - [0-3]"
-                          },
-                          "day_of_week": {
-                            "type": "integer",
-                            "required": [],
-                            "minimum": 0,
-                            "maximum": 6,
-                            "description": "Day of the punch based on the SI format - [0 (Sunday) - 6 (Saturday)]"
-                          }
-                        }
                       },
                       "split_time": {
                         "type": "string",
