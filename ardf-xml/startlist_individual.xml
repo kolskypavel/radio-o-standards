@@ -1,0 +1,84 @@
+<?xml version='1.0' encoding='utf-8'?>
+<StartList xmlns="http://robis.cz/datastandard/ardf/1.0"
+    xmlns:iof="http://www.orienteering.org/datastandard/3.0"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+    iofVersion="3.0" 
+    createTime="2024-12-08T16:52:12+01:00"
+    creator="CREATOR NAME"
+    xsi:schemaLocation="
+    http://robis.cz/datastandard/ardf/1.0 https://raw.githubusercontent.com/kolskypavel/radio-o-standards/main/ardf-xml/ardf_schema.xsd
+    http://www.orienteering.org/datastandard/3.0 https://raw.githubusercontent.com/international-orienteering-federation/datastandard-v3/master/IOF.xsd">
+    <Event>
+        <StartTime>
+            <Date>2024-09-26</Date>
+            <Time>09:00:00</Time>
+        </StartTime>
+        <!--ID soutěže v ROBISu -->
+        <ID type="ROBIS">1</ID> 
+        <Name>MČR na klasických tratích</Name>
+    </Event>
+    <!-- Přihlášky v definované kategorii -->
+    <ClassStart>
+        <!-- Hodnoty: M,F -->
+        <Class maxAge="" sex="M">
+            <Name>M20</Name>
+        </Class>
+        <PersonStart>
+            <Person sex="M">
+                <Name>
+                    <Given>Oldřich</Given>
+                    <Family>Novotný</Family>
+                </Name>
+                <ID type="INDEX">GBM0058</ID>
+            </Person>
+            <Organisation>
+                <Name>SK Radiosport</Name>
+                <ShortName>GBM</ShortName>
+            </Organisation>
+            <Start>
+                <StartTime>9:00:00</StartTime>
+                <ControlCard punchingSystem="SI">25645</ControlCard>
+            </Start>
+        </PersonStart>
+        <PersonStart>
+            <Person sex="M">
+                <Name><Given>Petr</Given>
+                    <Family>Novák</Family>
+                </Name>
+                <ID type="INDEX">GBM9514</ID>
+            </Person>
+            <Organisation>
+                <Name>SK Radiosport</Name>
+                <ShortName>GBM</ShortName>
+            </Organisation>
+            <Start>
+                <StartTime>9:05:00</StartTime>
+                <ControlCard punchingSystem="SI">8048538</ControlCard>
+            </Start>
+        </PersonStart>
+        <!-- Další závodníci startující ve stejné kategorii... -->
+    </ClassStart>
+    <!-- Nová kategorie s dalšími závodníky -->
+    <ClassStart>
+        <Class maxAge="" sex="M">
+            <Name>M60</Name>
+        </Class>
+        <PersonStart>
+            <Person sex="M">
+                <Name>
+                    <Given>Šimon</Given>
+                    <Family>Navrátil</Family>
+                </Name>
+                <ID type="INDEX">GBM5411</ID>
+            </Person>
+            <Organisation>
+                <Name>SK Radiosport</Name>
+                <ShortName>GBM</ShortName>
+            </Organisation>
+            <Start>
+                <StartTime>9:30:00</StartTime>
+                <ControlCard punchingSystem="SI">55677</ControlCard>
+            </Start>
+        </PersonStart>
+    </ClassStart>
+</StartList>
