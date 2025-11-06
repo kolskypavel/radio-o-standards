@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema
+  xmlns:xs="http://www.w3.org/2001/XMLSchema"
+  xmlns:iof="http://www.orienteering.org/datastandard/3.0"
+  xmlns:ardf="http://rob-is.cz/datastandard/ardf/1.0"
+  targetNamespace="http://rob-is.cz/datastandard/ardf/1.0"
+  elementFormDefault="qualified"
+  attributeFormDefault="unqualified">
+
+  <!-- Adjust schemaLocation to your IOF 3.0 XSD path -->
+  <xs:import namespace="http://www.orienteering.org/datastandard/3.0"
+           schemaLocation="https://raw.githubusercontent.com/international-orienteering-federation/datastandard-v3/master/IOF.xsd"/>
+
+  <!-- ===== ARDF: constrained result statuses ===== -->
+  <xs:simpleType name="ResultStatus">
+    <xs:annotation>
+      <xs:documentation>Allowed result statuses (ARDF restriction over IOF).</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="OK"/>
+      <xs:enumeration value="MissingPunch"/>
+      <xs:enumeration value="Disqualified"/>
+      <xs:enumeration value="DidNotFinish"/>
+      <xs:enumeration value="OverTime"/>
+      <xs:enumeration value="NotCompeting"/>
+      <xs:enumeration value="DidNotStart"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <!-- ===== ARDF: flags for control/split ===== -->
+  <xs:simpleType name="ControlMarkStatus">
+    <xs:annotation>
+      <xs:documentation>Mark a special control inside a split: Separator (spectator) or Beacon.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Separator"/>
+      <xs:enumeration value="Beacon"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="SplitStatus">
+    <xs:annotation>
+      <xs:documentation>Per-split flag: Additional (extra punch) or Missing (not taken).</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Additional"/>
+      <xs:enumeration value="Missing"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <!-- ===== ARDF: SplitTime (adds ControlCode/@status and SplitTime/@status) ===== -->
+  <xs:complexType name="SplitTime">
+    <xs:annotation>
+      <xs:documentation>
+        Split time to a control. ControlCode may carry @status={"Separator","Beacon"}.
+        The split itself may carry @status={"Additional","Missing"}.
+        Time is optional (e.g., omit for Missing).
+      </xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="ControlCode">
+        <xs:complexType>
+          <xs:simpleContent>
+            <xs:extension base="xs:string">
+              <xs:attribute name="status" type="ardf:ControlMarkStatus" use="optional"/>
+            </xs:extension>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="Time" type="xs:integer" minOccurs="0"/>
+    </xs:sequence>
+    <xs:attribute name="status" type="ardf:SplitStatus" use="optional"/>
+  </xs:complexType>
+
+  <!-- ===== ARDF: Result (IOF-like; uses ARDF Status/SplitTime) ===== -->
+  <xs:complexType name="Result">
+    <xs:annotation>
+      <xs:documentation>
+        Same structure as IOF Result, but Status is restricted to ARDF set and SplitTime uses ARDF extensions.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="StartTime" type="xs:dateTime" minOccurs="0"/>
+      <xs:element name="FinishTime" type="xs:dateTime" minOccurs="0"/>
+      <xs:element name="Time" type="xs:integer" minOccurs="0"/>
+      <xs:element name="Position" type="xs:integer" minOccurs="0"/>
+      <xs:element name="Status" type="ardf:ResultStatus"/>
+      <xs:element name="SplitTime" type="ardf:SplitTime" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <!-- ===== ARDF: PersonResult / ClassResult wrappers binding ARDF Result ===== -->
+  <xs:complexType name="PersonResult">
+    <xs:annotation>
+      <xs:documentation>IOF-like PersonResult that embeds ARDF Result.</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="Person" type="iof:Person"/>
+      <xs:element name="Result" type="ardf:Result"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="ClassResult">
+    <xs:annotation>
+      <xs:documentation>Result set for a single class/category.</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="Class" type="iof:Class"/>
+      <xs:element name="PersonResult" type="ardf:PersonResult" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="ResultListType">
+    <xs:annotation>
+      <xs:documentation>
+        Container for results across classes. Course listings remain as in IOF; control statuses are only in SplitTime.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="Event" type="iof:Event"/>
+      <xs:element name="ClassResult" type="ardf:ClassResult" maxOccurs="unbounded"/>
+    </xs:sequence>
+    <xs:attribute name="iofVersion" type="xs:string" use="optional"/>
+    <xs:attribute name="createTime" type="xs:string" use="optional"/>
+    <xs:attribute name="creator" type="xs:string" use="optional"/>
+  </xs:complexType>
+
+  <!-- ===== ARDF: StartList (IOF pass-through; no behavioral change) ===== -->
+  <xs:complexType name="StartListType">
+    <xs:annotation>
+      <xs:documentation>
+        Wrapper using IOF start structures (unchanged); provided to keep both roots under ARDF namespace.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="Event" type="iof:Event"/>
+      <xs:element name="ClassStart" type="iof:ClassStart" maxOccurs="unbounded"/>
+    </xs:sequence>
+    <xs:attribute name="iofVersion" type="xs:string" use="optional"/>
+    <xs:attribute name="createTime" type="xs:string" use="optional"/>
+    <xs:attribute name="creator" type="xs:string" use="optional"/>
+  </xs:complexType>
+
+  <!-- ===== ARDF roots ===== -->
+  <xs:element name="ResultList" type="ardf:ResultListType"/>
+  <xs:element name="StartList" type="ardf:StartListType"/>
+
+</xs:schema>

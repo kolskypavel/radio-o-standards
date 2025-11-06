@@ -1,0 +1,248 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ResultList xmlns="http://rob-is.cz/datastandard/ardf/1.0"
+    xmlns:iof="http://www.orienteering.org/datastandard/3.0"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    iofVersion="3.0"
+    createTime="2024-12-08T16:52:12+01:00" 
+    creator="CREATOR NAME"
+    xsi:schemaLocation="
+    http://rob-is.cz/datastandard/ardf/1.0 https://raw.githubusercontent.com/kolskypavel/radio-o-standards/main/ardf-xml/ardf_schema.xsd
+    http://www.orienteering.org/datastandard/3.0 https://raw.githubusercontent.com/international-orienteering-federation/datastandard-v3/master/IOF.xsd">
+    <Event>
+        <Name>MČR 3,5 MHz</Name>
+        <StartTime>
+            <!-- Start 00 -->
+            <Date>2024-11-02</Date>
+            <Time>10:30:00</Time>
+        </StartTime>
+    </Event>
+    
+    <!-- Výčet vyhledávaných kontrol v kategorii -->
+    <RaceCourseData>
+        <CourseFamily>M20</CourseFamily>
+        <CourseControl>
+            <Control>1</Control>
+        </CourseControl>
+        <CourseControl>
+            <Control>2</Control>
+        </CourseControl>
+        <CourseControl>
+            <Control>3</Control>
+        </CourseControl>
+        <CourseControl>
+            <Control>4</Control>
+        </CourseControl>
+        <CourseControl>
+            <Control>5</Control>
+        </CourseControl>
+        <CourseControl>
+            <Control>M</Control>    
+        </CourseControl>
+    </RaceCourseData>
+    <RaceCourseData>
+        <CourseFamily>D20</CourseFamily>
+        <CourseControl>
+            <Control>2</Control>
+        </CourseControl>
+        <CourseControl>
+            <Control>3</Control>
+        </CourseControl>
+        <CourseControl>
+            <Control>4</Control>
+        </CourseControl>
+        <CourseControl>
+            <Control>5</Control>
+        </CourseControl>
+        <CourseControl>
+            <Control>M</Control>    
+        </CourseControl>
+    </RaceCourseData>
+
+    <!-- Výčet výsledků v kategoriích-->
+    <ClassResult>
+        <Class>
+            <Name>M20</Name>
+        </Class>
+        <PersonResult>
+            <Person>
+                <!-- Type="CZE" musíš uvést jen pokud je zde více Id elementů. Jinak je volitelný --> 
+                <Id type="CZE">GBM8020</Id> 
+                <!-- Startovní číslo -->
+                <BibNumber>101</BibNumber> 
+                <!-- Číslo čipu -->
+                <ControlCard>794021</ControlCard>
+                <Name>
+                    <Family>Novák</Family>
+                    <Given>Petr</Given>
+                </Name>
+            </Person>
+            <Result>
+                <StartTime>2024-11-02T12:23:00+01:00</StartTime>
+                <FinishTime>2024-11-02T12:59:10+01:00</FinishTime>
+                <Time>2170</Time>
+                <Position>1</Position>
+                <!-- Volitelný tag, počet správně nalezených kontrol i s majákem a diváckou -->
+                <ValidPunches>11</ValidPunches>
+                <!-- Možné statusy: OK, MissingPunch (nehodnocen, např. nemá kontroly), Disqualified, DidNotFinish (nedokončil), OverTime (přes limit), NotCompeting (neklasifikován v oficiálním pořadí), DidNotStart -->
+                <Status>OK</Status>
+                <SplitTime>
+                    <ControlCode>225</ControlCode>
+                    <Time>77</Time>
+                </SplitTime>
+                <SplitTime>
+                    <ControlCode>201</ControlCode>
+                    <Time>831</Time>
+                </SplitTime>
+                <SplitTime>
+                    <!-- Status kontroly pro diváckou kontrolu -->
+                    <ControlCode status="Separator">204</ControlCode> 
+                    <Time>966</Time>
+                </SplitTime>
+                <SplitTime>
+                    <ControlCode>205</ControlCode>
+                    <Time>1066</Time>
+                </SplitTime>
+                <!-- Kontrola navíc -->
+                <SplitTime status="Additional">
+                    <ControlCode>206</ControlCode>
+                    <Time>1181</Time>
+                </SplitTime>
+                <SplitTime>
+                    <ControlCode>207</ControlCode>
+                    <Time>1366</Time>
+                </SplitTime>
+                <SplitTime>
+                    <ControlCode>208</ControlCode>
+                    <Time>1425</Time>
+                </SplitTime>
+                <SplitTime>
+                    <ControlCode>209</ControlCode>
+                    <Time>1557</Time>
+                </SplitTime>
+                <SplitTime>
+                    <ControlCode>212</ControlCode>
+                    <Time>1701</Time>
+                </SplitTime>
+                <SplitTime>
+                    <ControlCode>227</ControlCode>
+                    <Time>1832</Time>
+                </SplitTime>
+                <SplitTime>
+                    <ControlCode>213</ControlCode>
+                    <Time>1946</Time>
+                </SplitTime>
+                <SplitTime>
+                    <!-- Status kontroly pro maják -->
+                    <ControlCode status="Beacon">214</ControlCode>
+                    <Time>2057</Time>
+                </SplitTime>
+            </Result>
+        </PersonResult>
+        <PersonResult>
+            <Person>
+                <Id type="CZE">ASP9615</Id>
+                <BibNumber>102</BibNumber>
+                <ControlCard>8544021</ControlCard>
+                <Name>
+                    <Family>Mladý</Family>
+                    <Given>Oskar</Given>
+                </Name>
+            </Person>
+            <Result>
+                <StartTime>2024-11-02T12:15:01+01:00</StartTime>
+                <FinishTime>2024-11-02T12:50:47+01:00</FinishTime>
+                <Time>0</Time>
+                <ValidPunches>2</ValidPunches>
+                <!-- Při jiném statusu, než OK se neuvádí Position -->
+                <Status>MissingPunch</Status>
+                <!-- Kontrola špatně oražená (např. v OB misspunch, v ROB špatné pořadí např. za majákem) -->
+                <SplitTime status="Missing">
+                    <ControlCode>225</ControlCode>
+                </SplitTime>
+                <SplitTime status="Missing">
+                    <ControlCode>201</ControlCode>
+                </SplitTime>
+                <SplitTime status="Missing">
+                    <ControlCode>204</ControlCode>
+                </SplitTime>
+                <SplitTime status="Missing">
+                    <ControlCode>205</ControlCode>
+                </SplitTime>
+                <SplitTime status="Missing">
+                    <ControlCode>206</ControlCode>
+                </SplitTime>
+                <SplitTime status="Missing">
+                    <ControlCode>207</ControlCode>
+                </SplitTime>
+                <SplitTime status="Missing">
+                    <ControlCode>208</ControlCode>
+                </SplitTime>
+                <SplitTime status="Missing">
+                    <ControlCode>209</ControlCode>
+                </SplitTime>
+                <SplitTime status="Missing">
+                    <ControlCode>212</ControlCode>
+                </SplitTime>
+                <SplitTime>
+                    <ControlCode>227</ControlCode>
+                    <Time>1133</Time>
+                </SplitTime>
+                <SplitTime status="Missing">
+                    <ControlCode>213</ControlCode>
+                </SplitTime>
+                <SplitTime>
+                    <ControlCode status="Beacon">214</ControlCode>
+                    <Time>1903</Time>
+                </SplitTime>
+            </Result>
+        </PersonResult>
+    </ClassResult>
+    <!-- Další kategorie -->
+    <ClassResult>
+        <Class>
+            <Name>D20</Name>
+        </Class>
+        <PersonResult>
+            <Person>
+                <Id type="CZE">DCH0558</Id>
+                <ControlCard></ControlCard>
+                <Name>
+                    <Family>Nováková</Family>
+                    <Given>Kateřina</Given>
+                </Name>
+            </Person>
+            <Result>
+                <StartTime>2024-11-02T12:16:00+01:00</StartTime>
+                <FinishTime>2024-11-02T12:39:56+01:00</FinishTime>
+                <Time>1436</Time>
+                <Position>1</Position>
+                <ValidPunches>6</ValidPunches>
+                <Status>OK</Status>
+                <SplitTime>
+                    <ControlCode>217</ControlCode>
+                    <Time>169</Time>
+                </SplitTime>
+                <SplitTime>
+                    <ControlCode>218</ControlCode>
+                    <Time>306</Time>
+                </SplitTime>
+                <SplitTime>
+                    <ControlCode>220</ControlCode>
+                    <Time>701</Time>
+                </SplitTime>
+                <SplitTime>
+                    <ControlCode>224</ControlCode>
+                    <Time>868</Time>
+                </SplitTime>
+                <SplitTime>
+                    <ControlCode>221</ControlCode>
+                    <Time>1100</Time>
+                </SplitTime>
+                <SplitTime>
+                    <ControlCode status="Beacon">214</ControlCode>
+                    <Time>1297</Time>
+                </SplitTime>
+            </Result>
+        </PersonResult>
+    </ClassResult>
+</ResultList>
