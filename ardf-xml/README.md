@@ -14,7 +14,7 @@ This repository provides a minimal extension for ARDF use cases.
   `https://raw.githubusercontent.com/kolskypavel/radio-o-standards/main/ardf-xml/ardf_schema.xsd`
 
 - **Namespace (targetNamespace / default xmlns in instances)**:  
-  `http://robis.cz/datastandard/ardf/1.0`
+  `http://rob-is.cz/datastandard/ardf/1.0`
 
 > The IOF 3.0 schema is imported; you don’t need to modify the IOF namespace or files.
 
