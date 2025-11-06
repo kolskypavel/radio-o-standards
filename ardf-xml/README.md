@@ -23,14 +23,14 @@ This repository provides a minimal extension for ARDF use cases.
 **For example in results**
 ```xml
 <ResultList
-  xmlns="http://robis.cz/datastandard/ardf/1.0"
+  xmlns="http://rob-is.cz/datastandard/ardf/1.0"
   xmlns:iof="http://www.orienteering.org/datastandard/3.0"
   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
   iofVersion="3.0"
   createTime="2024-12-08T16:52:12Z" 
   creator="CREATOR NAME"
   xsi:schemaLocation="
-    http://robis.cz/datastandard/ardf/1.0 https://raw.githubusercontent.com/kolskypavel/radio-o-standards/main/ardf-xml/ardf_schema.xsd
+    http://rob-is.cz/datastandard/ardf/1.0 https://raw.githubusercontent.com/kolskypavel/radio-o-standards/main/ardf-xml/ardf_schema.xsd
     http://www.orienteering.org/datastandard/3.0 https://raw.githubusercontent.com/international-orienteering-federation/datastandard-v3/master/IOF.xsd">
 </ResultList>
 ```
