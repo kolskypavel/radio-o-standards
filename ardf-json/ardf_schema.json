@@ -288,16 +288,16 @@
                   "description": "Competitor's result",
                   "properties": {
                     "check_time": {
-                      "type": "duration",
-                      "description": "SI check time - duration from start 00"
+                      "type": "date-time",
+                      "description": "SI check time"
                     },
                     "start_time": {
-                      "type": "duration",
-                      "description": "SI start time - duration from start 00"
+                      "type": "date-time",
+                      "description": "SI start time"
                     },
                     "finish_time": {
-                      "type": "duration",
-                      "description": "SI finish time - duration from start 00"
+                      "type": "date-time",
+                      "description": "SI finish time "
                     },
                     "run_time": {
                       "type": "string",
@@ -391,16 +391,16 @@
                   "description": "Result's SI number"
                 },
                 "check_time": {
-                  "type": "duration",
-                  "description": "SI check time - duration from start 00"
+                  "type": "date-time",
+                  "description": "SI check time"
                 },
                 "start_time": {
-                  "type": "duration",
-                  "description": "SI start time - duration from start 00"
+                  "type": "date-time",
+                  "description": "SI start time"
                 },
                 "finish_time": {
-                  "type": "duration",
-                  "description": "SI finish time - duration from start 00"
+                  "type": "date-time",
+                  "description": "SI finish time"
                 },
                 "run_time": {
                   "type": "string",
